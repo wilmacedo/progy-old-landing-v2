@@ -35,7 +35,7 @@ export default function Navbar() {
 
   return (
     <nav>
-      <div className="px-4 md:px-24 py-5 w-screen flex justify-between border border-[#E2E4E3]">
+      <div className="px-4 md:px-24 py-5 w-screen flex justify-between border-b-[1px] border-[#E2E4E3]">
         <div className="max-w-screen-xl flex items-center">
           <div className="flex gap-2 h-fit items-center">
             <Logo className="w-[2rem] h-[auto]" />

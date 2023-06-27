@@ -43,13 +43,13 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:ml-6 md:flex md:gap-6">
-            {config.links.map(({ name, mobile }, index) =>
+            {config.links.map(({ name, path, mobile }, index) =>
               !mobile ? (
-                <div key={String(name + index)}>
+                <Link to={path} key={String(name + index)}>
                   <button className="font-semibold text-sm text-[#475467] cursor-pointer duration-200 hover:text-black">
                     {name}
                   </button>
-                </div>
+                </Link>
               ) : (
                 <Fragment key={index} />
               ),

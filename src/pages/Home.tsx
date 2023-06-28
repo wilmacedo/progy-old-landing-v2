@@ -24,7 +24,7 @@ export default function Home() {
           <h1 className="text-3xl md:text-[3.75rem] md:leading-[4.5rem] font-semibold">
             Gerenciamento simplificado e completo
           </h1>
-          <span className="text-[#475467] text-sm md:text-base">
+          <span className="text-gray-800 text-sm md:text-base">
             Somos especializados em oferecer soluções de planejamento e gestão
             para todos os tipos de empreendedores, ajudando a alcançar o sucesso
             por meio de soluções personalizadas.
@@ -38,16 +38,16 @@ export default function Home() {
               <input
                 type="email"
                 placeholder="seu@email.com"
-                className="p-2.5 w-full border border-[#E2E4E3] rounded outline-[#3E6BF7] duration-200 text-sm hover:bg-[#E7E9ED] invalid:border-red-500 invalid:text-red-500 focus:invalid:outline-red-500 focus:invalid:text-red-500"
+                className="p-2.5 w-full border border-gray-200 rounded outline-blue-400 duration-200 text-sm hover:bg-gray-200 invalid:border-red-500 invalid:text-red-500 focus:invalid:outline-red-500 focus:invalid:text-red-500"
               />
               <button
                 type="submit"
-                className="py-2.5 px-4 bg-[#3E6BF7] text-white text-sm rounded duration-200 whitespace-nowrap hover:brightness-125"
+                className="py-2.5 px-4 bg-blue-400 text-white text-sm rounded duration-200 whitespace-nowrap hover:brightness-125"
               >
                 Contatar
               </button>
             </form>
-            <span className="text-xs text-[#475467]">
+            <span className="text-xs text-gray-800">
               Nós nos preocupamos com seus dados em nossa{' '}
               <Link
                 to="/privacy-policy"

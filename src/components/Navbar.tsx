@@ -37,7 +37,7 @@ export default function Navbar() {
   return (
     <nav
       className={ct(
-        'px-4 py-5 border-b-[1px] border-[#E2E4E3] duration-500',
+        'px-4 py-5 border-b-[1px] border-gray-200 duration-500',
         'md:px-24',
         toggleMobileMenu ? 'h-[210px]' : 'h-[81px]',
       )}
@@ -54,7 +54,7 @@ export default function Navbar() {
               ({ name, path, mobile }, index) =>
                 !mobile && (
                   <Link to={path} key={String(name + index)}>
-                    <button className="font-semibold text-sm text-[#475467] cursor-pointer duration-200 hover:text-black">
+                    <button className="font-semibold text-sm text-gray-800 cursor-pointer duration-200 hover:text-black">
                       {name}
                     </button>
                   </Link>
@@ -69,7 +69,7 @@ export default function Navbar() {
             <button
               type="button"
               className={ct(
-                'py-2 px-4 text-sm bg-[#3E6BF7] rounded-md text-white duration-200',
+                'py-2 px-4 text-sm bg-blue-400 rounded-md text-white duration-200',
                 'hover:brightness-125',
               )}
             >
@@ -108,8 +108,8 @@ export default function Navbar() {
                   className={ct(
                     'block py-2 pl-3 rounded cursor-pointer',
                     isCurrentPath(path)
-                      ? 'bg-[#3E6BF7] text-white'
-                      : 'text-gray-900 hover:bg-gray-100',
+                      ? 'bg-blue-400 text-white'
+                      : 'text-gray-900',
                   )}
                 >
                   {name}

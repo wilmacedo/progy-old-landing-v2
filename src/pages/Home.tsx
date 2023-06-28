@@ -1,3 +1,4 @@
+import Devices from '@assets/devices.png';
 import { FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
@@ -18,11 +19,8 @@ export default function Home() {
     <>
       <Navbar />
 
-      <div
-        id="home"
-        className="mt-8 flex flex-col gap-8 px-4 md:flex-row md:px-24"
-      >
-        <div className="flex flex-col gap-6 max-w-full md:max-w-[27rem]">
+      <div className="mt-8 flex flex-col gap-24 pl-4 md:flex-row md:pl-48">
+        <div className="mt-12 flex flex-col gap-6 max-w-full md:max-w-[27rem]">
           <h1 className="text-3xl md:text-[3.75rem] md:leading-[4.5rem] font-semibold">
             Gerenciamento simplificado e completo
           </h1>
@@ -62,7 +60,15 @@ export default function Home() {
           </div>
         </div>
 
-        <span>ola</span>
+        <div className="mt-2 ml-auto h-auto">
+          <img src={Devices} alt="Devices" />
+        </div>
+      </div>
+
+      <div className="pt-8 flex justify-center w-full h-[5rem] bg-[#F9FAFB]">
+        <span className="text-[#475466] text-sm">
+          Join 4,000+ companies already growing
+        </span>
       </div>
     </>
   );

@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <Navbar />
 
-      <div className="mt-8 flex flex-col gap-24 pl-4 md:flex-row md:pl-48">
+      <div className="mt-8 flex flex-col gap-24 px-4 md:flex-row md:pl-48 md:pr-0">
         <div className="mt-12 flex flex-col gap-6 max-w-full md:max-w-[27rem]">
           <h1 className="text-3xl md:text-[3.75rem] md:leading-[4.5rem] font-semibold">
             Gerenciamento simplificado e completo

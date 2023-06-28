@@ -1,5 +1,6 @@
 import { ReactComponent as Logo } from '@assets/logo.svg';
-import { Fragment, useState } from 'react';
+import { ct } from '@utils/style';
+import { useState } from 'react';
 import { IoMenu } from 'react-icons/io5';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -34,64 +35,89 @@ export default function Navbar() {
   };
 
   return (
-    <nav>
-      <div className="px-4 md:px-24 py-5 w-screen flex justify-between border-b-[1px] border-[#E2E4E3]">
-        <div className="max-w-screen-xl flex items-center">
-          <div className="flex gap-2 h-fit items-center">
+    <nav
+      className={ct(
+        'px-4 py-5 border-b-[1px] border-[#E2E4E3] duration-500',
+        'md:px-24',
+        toggleMobileMenu ? 'h-[210px]' : 'h-[81px]',
+      )}
+    >
+      <div>
+        <div className="flex items-center gap-6">
+          <div className="flex gap-2 items-center">
             <Logo className="w-[2rem] h-[auto]" />
             <h1 className="text-xl font-bold tracking-widest">PROGY</h1>
           </div>
 
-          <div className="hidden md:ml-6 md:flex md:gap-6">
-            {config.links.map(({ name, path, mobile }, index) =>
-              !mobile ? (
-                <Link to={path} key={String(name + index)}>
-                  <button className="font-semibold text-sm text-[#475467] cursor-pointer duration-200 hover:text-black">
-                    {name}
-                  </button>
-                </Link>
-              ) : (
-                <Fragment key={index} />
-              ),
+          <div className={ct('hidden gap-6', 'md:flex')}>
+            {config.links.map(
+              ({ name, path, mobile }, index) =>
+                !mobile && (
+                  <Link to={path} key={String(name + index)}>
+                    <button className="font-semibold text-sm text-[#475467] cursor-pointer duration-200 hover:text-black">
+                      {name}
+                    </button>
+                  </Link>
+                ),
             )}
           </div>
-        </div>
 
-        <a className="hidden md:block" href="https://app.progy.com.br">
+          <Link
+            className={ct('hidden ml-auto', 'md:block')}
+            to="https://app.progy.com.br"
+          >
+            <button
+              type="button"
+              className={ct(
+                'py-2 px-4 text-sm bg-[#3E6BF7] rounded-md text-white duration-200',
+                'hover:brightness-125',
+              )}
+            >
+              Acessar
+            </button>
+          </Link>
+
           <button
             type="button"
-            className="py-2 px-4 text-sm bg-[#3E6BF7] rounded-md text-white duration-200 hover:brightness-125"
+            className={ct(
+              'ml-auto p-2 rounded-lg',
+              'md:hidden',
+              'hover:bg-gray-200',
+              'focus:outline-none focus:ring-2 focus:ring-gray-300',
+            )}
+            onClick={toggleMenu}
           >
-            Acessar
+            <IoMenu className="fill-black text-2xl" />
           </button>
-        </a>
+        </div>
 
-        <button
-          type="button"
-          className="p-2 rounded-lg md:hidden hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
-          onClick={toggleMenu}
+        <div
+          className={ct(
+            'my-2 duration-200',
+            'md:hidden',
+            toggleMobileMenu
+              ? 'visible animate-navbar-in'
+              : 'animate-navbar-out invisible',
+          )}
         >
-          <IoMenu className="fill-black text-2xl" />
-        </button>
-      </div>
-
-      <div className={`m-2 ${toggleMobileMenu ? 'block' : 'hidden'} md:hidden`}>
-        <ul className="flex flex-col p-4 border border-gray-100 rounded-e-lg bg-gray-50">
-          {config.links.map(({ name, path }, index) => (
-            <li key={String(name + index)}>
-              <Link
-                to={path}
-                className={`block py-2 pl-3 pr-4 rounded cursor-pointer ${
-                  isCurrentPath(path)
-                    ? 'bg-[#3E6BF7] text-white'
-                    : 'text-gray-900 hover:bg-gray-100'
-                }`}
-              >
-                {name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          <ul className="flex flex-col py-4">
+            {config.links.map(({ name, path }, index) => (
+              <li key={String(name + index)}>
+                <Link
+                  to={path}
+                  className={ct(
+                    'block py-2 pl-3 rounded cursor-pointer',
+                    isCurrentPath(path)
+                      ? 'bg-[#3E6BF7] text-white'
+                      : 'text-gray-900 hover:bg-gray-100',
+                  )}
+                >
+                  {name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </nav>
   );
